@@ -1,0 +1,15 @@
+// Find Virtual Machines of specific sizes
+// https://azure.microsoft.com/en-us/updates/?id=500682
+Resources
+| where type == "microsoft.compute/virtualmachines"
+| extend vmSize = tostring(properties.hardwareProfile.vmSize)
+| where vmSize startswith "F" or
+       vmSize startswith "Fs" or
+       vmSize startswith "Fsv2" or
+       vmSize startswith "Lsv2" or
+       vmSize startswith "G" or
+       vmSize startswith "Gs" or
+       vmSize startswith "Av2" or
+       vmSize startswith "Amv2" or
+       vmSize startswith "B"
+| project name, location, resourceGroup, vmSize
