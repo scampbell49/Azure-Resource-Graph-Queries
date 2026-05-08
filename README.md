@@ -1,2 +1,5 @@
 # Azure-Resource-Graph-Queries
-Useful ARG queries 
+Potentially Useful ARG queries 
+
+## Contents
+- Find Retiring VM SKUs 
